@@ -17,7 +17,7 @@
     "spotify-web-api-js": "^0.22.1"
   },
   "scripts": {
-    "start": "nodemon ./auth-server/authorization_code/app.js & react-scripts start",
+    "start": "node ./auth-server/authorization_code/app.js & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
