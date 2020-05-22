@@ -13,11 +13,11 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "spotify-web-api-js": "^0.22.1",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "spotify-web-api-js": "^0.22.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "nodemon ./auth-server/authorization_code/app.js & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
