@@ -28,7 +28,7 @@ class ArtistTopSongs extends Component {
     let { artistTopSongs } = this.state;
     return (
       <ul className="top-five">
-        <h3> Top 5 Songs </h3>
+        <h3> Top 10 Songs </h3>
         <div className="song-overflow">
           {artistTopSongs.map((topSongs) => {
             return (

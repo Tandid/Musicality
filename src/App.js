@@ -83,8 +83,8 @@ class App extends Component {
           </div>
           <TopArtists />
           <Playlists user={this.state.user} />
-          <div>Now Playing: {nowPlaying.name}</div>
           <div>
+            <div>Now Playing: {nowPlaying.name}</div>
             <img src={nowPlaying.albumArt} alt="album-art" />
           </div>
           {this.state.loggedIn && (
