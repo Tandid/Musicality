@@ -132,3 +132,8 @@ button {
   margin: 1rem;
   padding: 1rem;
 }
+
+.song-overflow {
+  overflow: scroll;
+  height: 360px;
+}

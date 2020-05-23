@@ -26,24 +26,25 @@ class ArtistTopSongs extends Component {
 
   render() {
     let { artistTopSongs } = this.state;
-    artistTopSongs = artistTopSongs.slice(0, 5);
     return (
       <ul className="top-five">
         <h3> Top 5 Songs </h3>
-        {artistTopSongs.map((topSongs) => {
-          return (
-            <li key={topSongs.id}>
-              <div className="row">
-                <img
-                  className="song-image"
-                  src={topSongs.album.images[1].url}
-                  alt="album-cover"
-                />
-                <p>{topSongs.name}</p>
-              </div>
-            </li>
-          );
-        })}
+        <div className="song-overflow">
+          {artistTopSongs.map((topSongs) => {
+            return (
+              <li key={topSongs.id}>
+                <div className="row">
+                  <img
+                    className="song-image"
+                    src={topSongs.album.images[1].url}
+                    alt="album-cover"
+                  />
+                  <p>{topSongs.name}</p>
+                </div>
+              </li>
+            );
+          })}
+        </div>
       </ul>
     );
   }
