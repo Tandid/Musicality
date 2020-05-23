@@ -71,3 +71,13 @@ button {
   justify-content: center;
   padding: 1rem;
 }
+
+.button {
+  padding: 0.5rem;
+  border-radius: 50px;
+  background-color: rgb(29, 185, 84);
+  border: solid 1px rgb(29, 185, 84);
+  color: white;
+  font-size: small;
+  font-weight: bold;
+}

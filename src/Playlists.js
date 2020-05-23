@@ -29,7 +29,7 @@ class Playlists extends Component {
     const { user } = this.props;
     return (
       <div className="card-wrapper">
-        <h1>{user}'s Playlists</h1>
+        <h1> My Playlists</h1>
         {/* <button onClick={() => this.getUserPlaylists()}>
           Load Public Playlists
         </button> */}

@@ -71,7 +71,7 @@ class App extends Component {
         <NavBar />
         <p>Hello, {user}</p>
         <a href="http://localhost:8888">
-          {!this.state.loggedIn ? "Login to Spotify" : "Welcome"}
+          {!this.state.loggedIn ? "Login to Spotify" : "Get Token"}
         </a>
         <Playlists user={this.state.user} />
 
@@ -81,10 +81,10 @@ class App extends Component {
         </div>
         {this.state.loggedIn && (
           <div>
-            <button onClick={() => this.getNowPlaying()}>
+            <button className="button" onClick={() => this.getNowPlaying()}>
               Check Now Playing
             </button>
-            <button onClick={() => this.getMe()}>
+            <button className="button" onClick={() => this.getMe()}>
               Get Currently Playing Track
             </button>
           </div>
