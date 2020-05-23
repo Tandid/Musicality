@@ -50,7 +50,7 @@ button {
 
 .card-wrapper {
   background-color: rgb(39, 39, 39);
-  border: solid 1px rgb(29, 185, 84);
+  padding: 1rem;
 }
 
 .playlists {
@@ -80,4 +80,13 @@ button {
   color: white;
   font-size: small;
   font-weight: bold;
+}
+
+.playlist-img {
+  height: 250px;
+}
+
+.scroll {
+  overflow: scroll;
+  height: 800px;
 }

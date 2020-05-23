@@ -26,7 +26,7 @@ class Playlists extends Component {
   render() {
     const { playlists } = this.state;
     console.log(playlists);
-    const { user } = this.props;
+    // const { user } = this.props;
     return (
       <div className="card-wrapper">
         <h1> My Playlists</h1>
@@ -38,7 +38,11 @@ class Playlists extends Component {
             return (
               <li key={playlist.id}>
                 <p>{playlist.name}</p>
-                <img src={playlist.images[2].url} alt="playlist-img" />
+                <img
+                  className="playlist-img"
+                  src={playlist.images[1].url}
+                  alt="playlist-img"
+                />
                 <p>Total Tracks: {playlist.tracks.total}</p>
               </li>
             );

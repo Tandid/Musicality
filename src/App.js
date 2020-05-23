@@ -65,30 +65,35 @@ class App extends Component {
   }
 
   render() {
-    const { user, nowPlaying } = this.state;
+    const { user, nowPlaying, loggedIn } = this.state;
+    if (!loggedIn) {
+      return <div> Loading...</div>;
+    }
     return (
       <div className="App">
         <NavBar />
-        <p>Hello, {user}</p>
-        <a href="http://localhost:8888">
-          {!this.state.loggedIn ? "Login to Spotify" : "Get Token"}
-        </a>
-        <Playlists user={this.state.user} />
+        <div className="scroll">
+          <p>Hello, {user}</p>
+          <a href="http://localhost:8888">
+            {!this.state.loggedIn ? "Login to Spotify" : "Get Token"}
+          </a>
+          <Playlists user={this.state.user} />
 
-        <div>Now Playing: {nowPlaying.name}</div>
-        <div>
-          <img src={nowPlaying.albumArt} alt="album-art" />
-        </div>
-        {this.state.loggedIn && (
+          <div>Now Playing: {nowPlaying.name}</div>
           <div>
-            <button className="button" onClick={() => this.getNowPlaying()}>
-              Check Now Playing
-            </button>
-            <button className="button" onClick={() => this.getMe()}>
-              Get Currently Playing Track
-            </button>
+            <img src={nowPlaying.albumArt} alt="album-art" />
           </div>
-        )}
+          {this.state.loggedIn && (
+            <div>
+              <button className="button" onClick={() => this.getNowPlaying()}>
+                Check Now Playing
+              </button>
+              <button className="button" onClick={() => this.getMe()}>
+                Get User Info
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     );
   }

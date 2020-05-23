@@ -3,6 +3,9 @@ import React from "react";
 class Navbar extends React.Component {
   constructor() {
     super();
+    this.state = {
+      isLoggedIn: "",
+    };
   }
 
   render() {
@@ -16,6 +19,7 @@ class Navbar extends React.Component {
           />
           <h2>Spotify Music Analysis</h2>
         </nav>
+        <hr />
       </div>
     );
   }
