@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import Player from "./Player";
 
 import SpotifyWebApi from "spotify-web-api-js";
 const spotifyApi = new SpotifyWebApi();
@@ -32,6 +32,7 @@ class App extends Component {
 
   getNowPlaying() {
     spotifyApi.getMyCurrentPlaybackState().then((response) => {
+      console.log(response);
       this.setState({
         nowPlaying: {
           name: response.item.name,
@@ -42,7 +43,7 @@ class App extends Component {
   }
 
   getUserPlaylists() {
-    spotifyApi.getUserPlaylists().then((response) => {
+    spotifyApi.getMyCurrentPlayingTrack().then((response) => {
       console.log(response);
       // this.setState({
       //   playlists: [response.items[0].name, response.items[0].tracks.total],
@@ -51,13 +52,11 @@ class App extends Component {
   }
 
   render() {
-    // console.log()
-    // console.log(this.getUserPlaylists());
     return (
       <div className="App">
-        {!this.state.loggedIn && (
-          <a href="http://localhost:8888"> Login to Spotify </a>
-        )}
+        <a href="http://localhost:8888">
+          {!this.state.loggedIn ? "Login to Spotify" : "Welcome"}
+        </a>
         <div>Now Playing: {this.state.nowPlaying.name}</div>
         <div>
           <img src={this.state.nowPlaying.albumArt} />
@@ -70,6 +69,7 @@ class App extends Component {
             <button onClick={() => this.getUserPlaylists()}>
               Get Public Playlists
             </button>
+            <Player />
           </div>
         )}
       </div>
