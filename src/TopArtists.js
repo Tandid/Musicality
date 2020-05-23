@@ -44,6 +44,10 @@ class TopArtists extends Component {
                     src={topArtist.images[1].url}
                     alt="artist-img"
                   />
+                  <p>Genres: </p>
+                  <p>
+                    {`${topArtist.genres[0]}, ${topArtist.genres[1]}, ${topArtist.genres[2]}`}
+                  </p>
                 </div>
                 <div>
                   <ArtistTopSongs id={topArtist.id} />
