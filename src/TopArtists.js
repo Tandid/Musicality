@@ -35,10 +35,10 @@ class TopArtists extends Component {
         <ul className="topArtists">
           {topArtists.map((topArtist, idx) => {
             return (
-              <li key={topArtist.id}>
+              <li className="artist-topsong" key={topArtist.id}>
                 <div>
-                  <p>#{idx + 1}</p>
-                  <p>{topArtist.name}</p>
+                  <h2>#{idx + 1}</h2>
+                  <h2>{topArtist.name}</h2>
                   <img
                     className="playlist-img"
                     src={topArtist.images[1].url}
