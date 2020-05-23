@@ -16,7 +16,7 @@ class Playlists extends Component {
 
   getUserPlaylists() {
     spotifyApi.getUserPlaylists().then((response) => {
-      console.log(response);
+      console.log({ Playlists: response });
       this.setState({
         playlists: response.items,
       });
@@ -25,7 +25,6 @@ class Playlists extends Component {
 
   render() {
     const { playlists } = this.state;
-    console.log(playlists);
     // const { user } = this.props;
     return (
       <div className="card-wrapper">

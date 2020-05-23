@@ -45,7 +45,7 @@ class App extends Component {
 
   getNowPlaying() {
     spotifyApi.getMyCurrentPlaybackState().then((response) => {
-      console.log(response);
+      console.log({ nowPlaying: response });
       this.setState({
         nowPlaying: {
           name: response.item.name,
@@ -57,7 +57,7 @@ class App extends Component {
 
   getMe() {
     spotifyApi.getMe().then((response) => {
-      console.log(response);
+      console.log({ User: response });
       this.setState({
         user: response.display_name,
       });
@@ -74,7 +74,7 @@ class App extends Component {
         <NavBar />
         <div className="scroll">
           <p>Hello, {user}</p>
-          <a href="http://localhost:8888">
+          <a className="button" href="http://localhost:8888">
             {!this.state.loggedIn ? "Login to Spotify" : "Get Token"}
           </a>
           <Playlists user={this.state.user} />
