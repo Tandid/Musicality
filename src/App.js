@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Playlists from "./Playlists";
 import NavBar from "./NavBar";
+import TopArtists from "./TopArtists";
 
 import SpotifyWebApi from "spotify-web-api-js";
 const spotifyApi = new SpotifyWebApi();
@@ -74,10 +75,13 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <div className="scroll">
-          <p>Hello, {user}</p>
-          <a className="button" href="http://localhost:8888">
-            {!this.state.loggedIn ? "Login to Spotify" : "Get Token"}
-          </a>
+          <div>
+            <p>Hello, {user}</p>
+            <a className="button" href="http://localhost:8888">
+              {!this.state.loggedIn ? "Login to Spotify" : "Get Token"}
+            </a>
+          </div>
+          <TopArtists />
           <Playlists user={this.state.user} />
           <div>Now Playing: {nowPlaying.name}</div>
           <div>

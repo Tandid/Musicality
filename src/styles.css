@@ -53,8 +53,20 @@ button {
   padding: 1rem;
 }
 
+.card-wrapper-2 {
+  background-color: none;
+  padding: 1rem;
+}
+
 .playlists {
   display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+}
+
+.topArtists {
+  display: flex;
+  flex-direction: column;
   list-style-type: none;
   justify-content: space-around;
 }
@@ -90,4 +102,21 @@ button {
 .scroll {
   overflow: scroll;
   height: 800px;
+}
+
+.song-image {
+  height: 75px;
+  margin-right: 2rem;
+}
+
+.top-five {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }

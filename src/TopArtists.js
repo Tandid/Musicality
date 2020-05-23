@@ -1,48 +1,53 @@
 import React, { Component } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
+import ArtistTopSongs from "./ArtistTopSongs";
+
 const spotifyApi = new SpotifyWebApi();
 
-class Playlists extends Component {
+class TopArtists extends Component {
   constructor() {
     super();
     this.state = {
-      playlists: [],
+      topArtists: [],
     };
   }
 
   componentDidMount() {
-    this.getUserPlaylists();
+    this.getTopArtists();
   }
 
-  getUserPlaylists() {
-    spotifyApi.getUserPlaylists().then((response) => {
-      console.log({ Playlists: response });
+  async getTopArtists() {
+    await spotifyApi.getMyTopArtists().then((response) => {
+      console.log({ TopArtists: response });
       this.setState({
-        playlists: response.items,
+        topArtists: response.items,
       });
     });
   }
 
   render() {
-    const { playlists } = this.state;
+    let { topArtists } = this.state;
+    topArtists = topArtists.slice(0, 3);
     // const { user } = this.props;
     return (
-      <div className="card-wrapper">
-        <h1> My Public Playlists</h1>
-        {/* <button onClick={() => this.getUserPlaylists()}>
-          Load Public Playlists
-        </button> */}
-        <ul className="playlists">
-          {playlists.map((playlist) => {
+      <div className="card-wrapper-2">
+        <h1> My Top Artists</h1>
+        <ul className="topArtists">
+          {topArtists.map((topArtist, idx) => {
             return (
-              <li key={playlist.id}>
-                <p>{playlist.name}</p>
-                <img
-                  className="playlist-img"
-                  src={playlist.images[1].url}
-                  alt="playlist-img"
-                />
-                <p>Total Tracks: {playlist.tracks.total}</p>
+              <li key={topArtist.id}>
+                <div>
+                  <p>#{idx + 1}</p>
+                  <p>{topArtist.name}</p>
+                  <img
+                    className="playlist-img"
+                    src={topArtist.images[1].url}
+                    alt="artist-img"
+                  />
+                </div>
+                <div>
+                  <ArtistTopSongs id={topArtist.id} />
+                </div>
               </li>
             );
           })}
@@ -52,4 +57,4 @@ class Playlists extends Component {
   }
 }
 
-export default Playlists;
+export default TopArtists;
