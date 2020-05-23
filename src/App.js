@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Player from "./Player";
+import Playlists from "./Playlists";
 
 import SpotifyWebApi from "spotify-web-api-js";
 const spotifyApi = new SpotifyWebApi();
@@ -15,6 +15,7 @@ class App extends Component {
     this.state = {
       loggedIn: token ? true : false,
       nowPlaying: { name: "Not Checked", albumArt: "" },
+      user: [],
     };
   }
   getHashParams() {
@@ -30,46 +31,54 @@ class App extends Component {
     return hashParams;
   }
 
+  componentDidMount() {
+    this.getNowPlaying();
+    this.getMe();
+  }
+
   getNowPlaying() {
     spotifyApi.getMyCurrentPlaybackState().then((response) => {
       console.log(response);
       this.setState({
         nowPlaying: {
           name: response.item.name,
-          albumArt: response.item.album.images[0].url,
+          albumArt: response.item.album.images[1].url,
         },
       });
     });
   }
 
-  getUserPlaylists() {
-    spotifyApi.getMyCurrentPlayingTrack().then((response) => {
+  getMe() {
+    spotifyApi.getMe().then((response) => {
       console.log(response);
-      // this.setState({
-      //   playlists: [response.items[0].name, response.items[0].tracks.total],
-      // });
+      this.setState({
+        user: response.display_name,
+      });
     });
   }
 
   render() {
+    const { user, nowPlaying } = this.state;
     return (
       <div className="App">
+        <p>Hello, {user}</p>
         <a href="http://localhost:8888">
           {!this.state.loggedIn ? "Login to Spotify" : "Welcome"}
         </a>
-        <div>Now Playing: {this.state.nowPlaying.name}</div>
+
+        <div>Now Playing: {nowPlaying.name}</div>
         <div>
-          <img src={this.state.nowPlaying.albumArt} />
+          <img src={nowPlaying.albumArt} alt="album-art" />
         </div>
         {this.state.loggedIn && (
           <div>
             <button onClick={() => this.getNowPlaying()}>
               Check Now Playing
             </button>
-            <button onClick={() => this.getUserPlaylists()}>
-              Get Public Playlists
+            <button onClick={() => this.getMe()}>
+              Get Currently Playing Track
             </button>
-            <Player />
+            <Playlists />
           </div>
         )}
       </div>

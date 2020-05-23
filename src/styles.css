@@ -2,8 +2,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  color: white;
+  font-weight: bold;
+  background-color: rgb(18, 18, 18);
 }
 
+/* App */
 .App {
   text-align: center;
 }
@@ -40,4 +44,11 @@ body {
 div,
 button {
   margin: 10px;
+}
+
+/*  */
+
+.card-wrapper {
+  background-color: rgb(39, 39, 39);
+  border: solid 1px rgb(29, 185, 84);
 }
