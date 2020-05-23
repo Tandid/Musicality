@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Playlists from "./Playlists";
+import NavBar from "./NavBar";
+
 import SpotifyWebApi from "spotify-web-api-js";
 const spotifyApi = new SpotifyWebApi();
 
@@ -35,6 +37,12 @@ class App extends Component {
     this.getMe();
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.nowPlaying.name !== this.state.nowPlaying.name) {
+  //     this.getNowPlaying();
+  //   }
+  // }
+
   getNowPlaying() {
     spotifyApi.getMyCurrentPlaybackState().then((response) => {
       console.log(response);
@@ -60,10 +68,12 @@ class App extends Component {
     const { user, nowPlaying } = this.state;
     return (
       <div className="App">
+        <NavBar />
         <p>Hello, {user}</p>
         <a href="http://localhost:8888">
           {!this.state.loggedIn ? "Login to Spotify" : "Welcome"}
         </a>
+        <Playlists user={this.state.user} />
 
         <div>Now Playing: {nowPlaying.name}</div>
         <div>
@@ -77,7 +87,6 @@ class App extends Component {
             <button onClick={() => this.getMe()}>
               Get Currently Playing Track
             </button>
-            <Playlists user={this.state.user} />
           </div>
         )}
       </div>

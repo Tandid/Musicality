@@ -30,15 +30,15 @@ class Playlists extends Component {
     return (
       <div className="card-wrapper">
         <h1>{user}'s Playlists</h1>
-        <button onClick={() => this.getUserPlaylists()}>
+        {/* <button onClick={() => this.getUserPlaylists()}>
           Load Public Playlists
-        </button>
+        </button> */}
         <ul className="playlists">
           {playlists.map((playlist) => {
             return (
               <li key={playlist.id}>
                 <p>{playlist.name}</p>
-                <img src={playlist.images[1]} alt="playlist-img" />
+                <img src={playlist.images[2].url} alt="playlist-img" />
                 <p>Total Tracks: {playlist.tracks.total}</p>
               </li>
             );

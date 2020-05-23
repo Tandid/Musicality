@@ -58,3 +58,16 @@ button {
   list-style-type: none;
   justify-content: space-around;
 }
+
+.logo {
+  height: 40px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: rgb(39, 39, 39);
+  justify-content: center;
+  padding: 1rem;
+}
