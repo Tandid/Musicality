@@ -15,7 +15,7 @@ class App extends Component {
     }
     this.state = {
       loggedIn: token ? true : false,
-      nowPlaying: { name: "Not Checked", albumArt: "" },
+      nowPlaying: { name: "Not Checked", albumArt: "", id: "" },
       user: [],
     };
   }
@@ -50,6 +50,7 @@ class App extends Component {
         nowPlaying: {
           name: response.item.name,
           albumArt: response.item.album.images[1].url,
+          id: response.item.id,
         },
       });
     });
@@ -78,7 +79,6 @@ class App extends Component {
             {!this.state.loggedIn ? "Login to Spotify" : "Get Token"}
           </a>
           <Playlists user={this.state.user} />
-
           <div>Now Playing: {nowPlaying.name}</div>
           <div>
             <img src={nowPlaying.albumArt} alt="album-art" />
