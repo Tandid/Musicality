@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Playlists from "./Playlists";
-
 import SpotifyWebApi from "spotify-web-api-js";
 const spotifyApi = new SpotifyWebApi();
 
@@ -78,7 +77,7 @@ class App extends Component {
             <button onClick={() => this.getMe()}>
               Get Currently Playing Track
             </button>
-            <Playlists />
+            <Playlists user={this.state.user} />
           </div>
         )}
       </div>

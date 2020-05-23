@@ -26,15 +26,17 @@ class Playlists extends Component {
   render() {
     const { playlists } = this.state;
     console.log(playlists);
+    const { user } = this.props;
     return (
       <div className="card-wrapper">
+        <h1>{user}'s Playlists</h1>
         <button onClick={() => this.getUserPlaylists()}>
           Load Public Playlists
         </button>
-        <ul>
+        <ul className="playlists">
           {playlists.map((playlist) => {
             return (
-              <li>
+              <li key={playlist.id}>
                 <p>{playlist.name}</p>
                 <img src={playlist.images[1]} alt="playlist-img" />
                 <p>Total Tracks: {playlist.tracks.total}</p>

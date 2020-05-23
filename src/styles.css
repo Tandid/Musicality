@@ -52,3 +52,9 @@ button {
   background-color: rgb(39, 39, 39);
   border: solid 1px rgb(29, 185, 84);
 }
+
+.playlists {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+}
