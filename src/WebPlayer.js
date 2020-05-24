@@ -56,9 +56,10 @@ class WebPlayer extends Component {
     return (
       <div>
         <div>
-          <p>{player.deviceName}</p>
+          <h1>Now Playing</h1>
+          <h4>Device: {player.deviceName}</h4>
         </div>
-        <div>Now Playing: {nowPlaying.name}</div>
+        <div>{nowPlaying.name}</div>
         <img
           className="web-player-img"
           src={nowPlaying.albumArt}
