@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Playlists from "./Playlists";
+import Analysis from "./Analysis";
 import NavBar from "./NavBar";
 import TopArtists from "./TopArtists";
 
@@ -34,7 +35,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getNowPlaying();
+    // this.getNowPlaying();
     this.getMe();
   }
 
@@ -98,6 +99,7 @@ class App extends Component {
             </div>
           )}
         </div>
+        <Analysis id={nowPlaying.id} />
       </div>
     );
   }
