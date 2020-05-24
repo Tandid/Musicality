@@ -19,7 +19,7 @@ class RelatedArtists extends Component {
     await spotifyApi.getArtistRelatedArtists(id).then((response) => {
       console.log({ RelatedArtists: response });
       this.setState({
-        RelatedArtists: response.tracks,
+        relatedArtists: response.artists,
       });
     });
   }
@@ -28,17 +28,20 @@ class RelatedArtists extends Component {
     let { relatedArtists } = this.state;
     relatedArtists = relatedArtists.slice(0, 3);
     return (
-      <ul className="top-five">
+      <div>
         <h3> Related Artists </h3>
-        {relatedArtists.map((related) => {
-          return (
-            <li key={related.id}>
-              <p>{related.name}</p>
-              <img src={related.images[1].url} alt="related-img" />
-            </li>
-          );
-        })}
-      </ul>
+        <ul className="related-artists-wrapper">
+          {relatedArtists.map((related) => {
+            return (
+              <li key={related.id}>
+                <p>{related.name}</p>
+                <img src={related.images[2].url} alt="related-img" />
+                <RelatedArtists id={related.id} />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     );
   }
 }

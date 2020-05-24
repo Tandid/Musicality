@@ -137,3 +137,9 @@ button {
   overflow: scroll;
   height: 360px;
 }
+
+.related-artists-wrapper {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+}
