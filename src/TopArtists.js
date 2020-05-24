@@ -49,6 +49,7 @@ class TopArtists extends Component {
                   <p>{topArtist.genres[0]},</p>
                   <p>{topArtist.genres[1]},</p>
                   <p>{topArtist.genres[2]}</p>
+                  <button className="button"> View Albums </button>
                 </div>
                 <div>
                   <ArtistTopSongs id={topArtist.id} />

@@ -96,6 +96,31 @@ button {
   width: 200px;
 }
 
+.button:hover {
+  background-color: rgb(47, 167, 89);
+  border: solid 1.5px rgb(47, 167, 89);
+  cursor: pointer;
+}
+
+.button-2 {
+  padding: 0.5rem;
+  border-radius: 50px;
+  background-color: black;
+  border: solid 1px white;
+  color: white;
+  font-size: small;
+  font-weight: bold;
+  text-decoration: none;
+  width: 200px;
+}
+
+.button-2:hover {
+  background-color: black;
+  border: solid 1px lightgray;
+  color: lightgray;
+  cursor: pointer;
+}
+
 .playlist-img {
   height: 250px;
 }

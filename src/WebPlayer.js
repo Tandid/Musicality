@@ -65,19 +65,19 @@ class WebPlayer extends Component {
           alt="album-art"
         />
         <div>
-          <button className="button" onClick={() => this.previous()}>
+          <button className="button-2" onClick={() => this.previous()}>
             Previous
           </button>
-          <button className="button" onClick={() => this.pause()}>
+          <button className="button-2" onClick={() => this.pause()}>
             Pause
           </button>
-          <button className="button" onClick={() => this.getNowPlaying()}>
+          <button className="button-2" onClick={() => this.getNowPlaying()}>
             Check Now Playing
           </button>
-          <button className="button" onClick={() => this.play()}>
+          <button className="button-2" onClick={() => this.play()}>
             Play
           </button>
-          <button className="button" onClick={() => this.next()}>
+          <button className="button-2" onClick={() => this.next()}>
             Next
           </button>
         </div>

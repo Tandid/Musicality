@@ -54,6 +54,8 @@ class Analysis extends Component {
               <p> Acousticness: {features.acousticness}</p>
               <p> Danceability: {features.danceability}</p>
               <p> Energy: {features.energy}</p>
+              <p> Tempo: {features.tempo}</p>
+              <p> Valence(Positiveness) : {features.valence}</p>
             </div>
           </div>
         )}
