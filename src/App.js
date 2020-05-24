@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Playlists from "./Playlists";
-import Analysis from "./Analysis";
+// import Analysis from "./Analysis";
 import NavBar from "./NavBar";
 import TopArtists from "./TopArtists";
 
@@ -34,8 +34,8 @@ class App extends Component {
     return hashParams;
   }
 
-  componentDidMount() {
-    // this.getNowPlaying();
+  async componentDidMount() {
+    this.getNowPlaying();
     this.getMe();
   }
 
@@ -45,8 +45,8 @@ class App extends Component {
   //   }
   // }
 
-  getNowPlaying() {
-    spotifyApi.getMyCurrentPlaybackState().then((response) => {
+  async getNowPlaying() {
+    await spotifyApi.getMyCurrentPlaybackState().then((response) => {
       console.log({ nowPlaying: response });
       this.setState({
         nowPlaying: {
@@ -99,7 +99,7 @@ class App extends Component {
             </div>
           )}
         </div>
-        <Analysis id={nowPlaying.id} />
+        {/* <Analysis id={nowPlaying.id} /> */}
       </div>
     );
   }

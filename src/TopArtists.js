@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import ArtistTopSongs from "./ArtistTopSongs";
+import RelatedArtists from "./RelatedArtists";
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -52,6 +53,15 @@ class TopArtists extends Component {
                 <div>
                   <ArtistTopSongs id={topArtist.id} />
                 </div>
+              </li>
+            );
+          })}
+        </ul>
+        <ul className="topArtists">
+          {topArtists.map((topArtist, idx) => {
+            return (
+              <li className="artist-topsong" key={topArtist.id}>
+                <RelatedArtists id={topArtist.id} />
               </li>
             );
           })}

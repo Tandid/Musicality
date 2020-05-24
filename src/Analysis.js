@@ -14,9 +14,9 @@ class Analysis extends Component {
     this.getTrackAnalysis();
   }
 
-  getTrackAnalysis() {
+  async getTrackAnalysis() {
     const { id } = this.props;
-    spotifyApi.getAudioAnalysisForTrack(id).then((response) => {
+    await spotifyApi.getAudioAnalysisForTrack(id).then((response) => {
       console.log({ getTrackAnalysis: response });
       this.setState({
         Analysis: response,
