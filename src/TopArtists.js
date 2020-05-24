@@ -52,6 +52,7 @@ class TopArtists extends Component {
                 </div>
                 <div>
                   <ArtistTopSongs id={topArtist.id} />
+                  <RelatedArtists id={topArtist.id} />
                 </div>
               </li>
             );
