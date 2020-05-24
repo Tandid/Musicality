@@ -6,8 +6,9 @@ class Analysis extends Component {
   constructor() {
     super();
     this.state = {
-      Analysis: [],
-      Features: [],
+      analysis: [],
+      features: [],
+      active: false,
     };
   }
 
@@ -21,7 +22,7 @@ class Analysis extends Component {
     await spotifyApi.getAudioAnalysisForTrack(id).then((response) => {
       console.log({ getTrackAnalysis: response });
       this.setState({
-        Analysis: response,
+        analysis: response,
       });
     });
   }
@@ -31,16 +32,31 @@ class Analysis extends Component {
     await spotifyApi.getAudioFeaturesForTrack(id).then((response) => {
       console.log({ getTrackFeatures: response });
       this.setState({
-        Analysis: response,
-        Features: response,
+        features: response,
       });
     });
   }
 
   render() {
+    const { features } = this.state;
     return (
       <div className="card-wrapper-2">
-        <h1> Song Analysis</h1>
+        <button
+          className="button"
+          onClick={() => this.setState({ active: !this.state.active })}
+        >
+          Get Song Analysis
+        </button>
+        {this.state.active === true && (
+          <div>
+            <h1> Song Analysis </h1>
+            <div>
+              <p> Acousticness: {features.acousticness}</p>
+              <p> Danceability: {features.danceability}</p>
+              <p> Energy: {features.energy}</p>
+            </div>
+          </div>
+        )}
       </div>
     );
   }

@@ -93,6 +93,7 @@ button {
   font-size: small;
   font-weight: bold;
   text-decoration: none;
+  width: 200px;
 }
 
 .playlist-img {
@@ -165,4 +166,8 @@ img {
 
 .profile-wrapper > img {
   height: 200px;
+}
+
+.web-player-img {
+  height: 250px;
 }

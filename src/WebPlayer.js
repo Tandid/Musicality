@@ -56,20 +56,23 @@ class WebPlayer extends Component {
     return (
       <div>
         <div>
-          <p>{player.device_id}</p>
           <p>{player.deviceName}</p>
         </div>
         <div>Now Playing: {nowPlaying.name}</div>
-        <img src={nowPlaying.albumArt} alt="album-art" />
+        <img
+          className="web-player-img"
+          src={nowPlaying.albumArt}
+          alt="album-art"
+        />
         <div>
           <button className="button" onClick={() => this.previous()}>
             Previous
           </button>
-          <button className="button" onClick={() => this.getNowPlaying()}>
-            Check Now Playing
-          </button>
           <button className="button" onClick={() => this.pause()}>
             Pause
+          </button>
+          <button className="button" onClick={() => this.getNowPlaying()}>
+            Check Now Playing
           </button>
           <button className="button" onClick={() => this.play()}>
             Play

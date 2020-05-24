@@ -13,9 +13,11 @@ class Profile extends Component {
       activeButtonTwo: false,
     };
   }
+
   componentDidMount() {
     this.getMe();
   }
+
   getMe() {
     spotifyApi.getMe().then((response) => {
       this.setState({
