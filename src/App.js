@@ -84,11 +84,10 @@ class App extends Component {
         <NavBar />
         <div className="scroll">
           <div>
-            <p>Hello, {user.display_name}</p>
+            <h1>Hello, {user.display_name}</h1>
           </div>
           <Profile />
           <TopArtists />
-          <Playlists user={this.state.user} />
           <div>
             <div>Now Playing: {nowPlaying.name}</div>
             <img src={nowPlaying.albumArt} alt="album-art" />
@@ -97,9 +96,6 @@ class App extends Component {
             <div>
               <button className="button" onClick={() => this.getNowPlaying()}>
                 Check Now Playing
-              </button>
-              <button className="button" onClick={() => this.getMe()}>
-                Get User Info
               </button>
             </div>
           )}

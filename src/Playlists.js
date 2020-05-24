@@ -25,13 +25,10 @@ class Playlists extends Component {
 
   render() {
     const { playlists } = this.state;
-    // const { user } = this.props;
     return (
       <div className="card-wrapper">
         <h1> My Public Playlists</h1>
-        {/* <button onClick={() => this.getUserPlaylists()}>
-          Load Public Playlists
-        </button> */}
+
         <ul className="playlists">
           {playlists.map((playlist) => {
             return (

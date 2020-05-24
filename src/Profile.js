@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
+import Playlists from "./Playlists";
+
 const spotifyApi = new SpotifyWebApi();
 
 class Profile extends Component {
@@ -7,7 +9,8 @@ class Profile extends Component {
     super();
     this.state = {
       user: [],
-      active: false,
+      activeButton: false,
+      activeButtonTwo: false,
     };
   }
   componentDidMount() {
@@ -15,7 +18,6 @@ class Profile extends Component {
   }
   getMe() {
     spotifyApi.getMe().then((response) => {
-      console.log({ User: response });
       this.setState({
         user: response,
       });
@@ -24,19 +26,37 @@ class Profile extends Component {
 
   render() {
     const { user } = this.state;
-    console.log(user);
     return (
       <div>
         <button
           className="button"
-          onClick={() => this.setState({ active: !this.state.active })}
+          onClick={() =>
+            this.setState({ activeButton: !this.state.activeButton })
+          }
         >
-          Get User Profile
+          User Profile
         </button>
-        {this.state.active === true && (
+        {this.state.activeButton === true && (
           <div>
-            <div>{user.display_name}</div>
-            {/* <img src={user.images.url} alt="profile-pic" /> */}
+            <div className="profile-wrapper">
+              <img src={user.images[0].url} alt="profile-pic" />
+              <div>
+                <p>{user.display_name}</p>
+                <p>Email: {user.email}</p>
+                <p>Status: {user.product}</p>
+                <button
+                  className="button"
+                  onClick={() =>
+                    this.setState({
+                      activeButtonTwo: !this.state.activeButtonTwo,
+                    })
+                  }
+                >
+                  View Playlists
+                </button>
+              </div>
+            </div>
+            {this.state.activeButtonTwo === true && <Playlists />}
           </div>
         )}
       </div>

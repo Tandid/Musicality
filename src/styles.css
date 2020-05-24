@@ -153,3 +153,16 @@ img {
   height: 50px;
   margin-right: 0.5rem;
 }
+
+.profile-wrapper {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  margin-left: 30%;
+  margin-right: 30%;
+  background-color: black;
+}
+
+.profile-wrapper > img {
+  height: 200px;
+}
