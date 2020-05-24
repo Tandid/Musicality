@@ -18,7 +18,6 @@ class RelatedArtists extends Component {
   async getRelated() {
     const { id } = this.props;
     await spotifyApi.getArtistRelatedArtists(id).then((response) => {
-      console.log({ RelatedArtists: response });
       this.setState({
         relatedArtists: response.artists,
       });

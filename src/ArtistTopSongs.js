@@ -17,7 +17,6 @@ class ArtistTopSongs extends Component {
   async artistTopSongs() {
     const { id } = this.props;
     await spotifyApi.getArtistTopTracks(id, "US").then((response) => {
-      console.log({ ArtistTopSongs: response });
       this.setState({
         artistTopSongs: response.tracks,
       });

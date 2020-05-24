@@ -9,18 +9,12 @@ class WebPlayer extends Component {
   constructor() {
     super();
     this.state = {
+      player: { device_id: "", deviceName: "" },
       nowPlaying: { name: "Not Checked", albumArt: "", id: "" },
     };
   }
   componentDidMount() {
     this.getNowPlaying();
-  }
-  getMe() {
-    spotifyApi.getMe().then((response) => {
-      this.setState({
-        user: response,
-      });
-    });
   }
 
   async getNowPlaying() {
@@ -32,20 +26,36 @@ class WebPlayer extends Component {
           albumArt: response.item.album.images[1].url,
           id: response.item.id,
         },
+        player: {
+          deviceId: response.device.id,
+          deviceName: response.device.name,
+        },
       });
     });
   }
 
+  pause() {
+    const { player } = this.state;
+    spotifyApi.pause(player);
+  }
+
   render() {
-    const { nowPlaying } = this.state;
+    const { nowPlaying, player } = this.state;
 
     return (
       <div>
+        <div>
+          <p>{player.device_id}</p>
+          <p>{player.deviceName}</p>
+        </div>
         <div>Now Playing: {nowPlaying.name}</div>
         <img src={nowPlaying.albumArt} alt="album-art" />
         <div>
           <button className="button" onClick={() => this.getNowPlaying()}>
             Check Now Playing
+          </button>
+          <button className="button" onClick={() => this.pause()}>
+            Pause
           </button>
         </div>
         {nowPlaying.id && <Analysis id={nowPlaying.id} />}
