@@ -35,8 +35,19 @@ class WebPlayer extends Component {
   }
 
   pause() {
-    const { player } = this.state;
-    spotifyApi.pause(player);
+    spotifyApi.pause(this.state.player);
+  }
+
+  play() {
+    spotifyApi.play(this.state.player);
+  }
+
+  next() {
+    spotifyApi.skipToNext(this.state.player);
+  }
+
+  previous() {
+    spotifyApi.skipToPrevious(this.state.player);
   }
 
   render() {
@@ -51,11 +62,20 @@ class WebPlayer extends Component {
         <div>Now Playing: {nowPlaying.name}</div>
         <img src={nowPlaying.albumArt} alt="album-art" />
         <div>
+          <button className="button" onClick={() => this.previous()}>
+            Previous
+          </button>
           <button className="button" onClick={() => this.getNowPlaying()}>
             Check Now Playing
           </button>
           <button className="button" onClick={() => this.pause()}>
             Pause
+          </button>
+          <button className="button" onClick={() => this.play()}>
+            Play
+          </button>
+          <button className="button" onClick={() => this.next()}>
+            Next
           </button>
         </div>
         {nowPlaying.id && <Analysis id={nowPlaying.id} />}
