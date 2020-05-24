@@ -70,7 +70,13 @@ class App extends Component {
   render() {
     const { user, nowPlaying, loggedIn } = this.state;
     if (!loggedIn) {
-      return <div> Loading...</div>;
+      return (
+        <div>
+          <a className="button" href="http://localhost:8888">
+            Login to Spotify
+          </a>
+        </div>
+      );
     }
     return (
       <div className="App">
@@ -78,9 +84,6 @@ class App extends Component {
         <div className="scroll">
           <div>
             <p>Hello, {user}</p>
-            <a className="button" href="http://localhost:8888">
-              {!this.state.loggedIn ? "Login to Spotify" : "Get Token"}
-            </a>
           </div>
           <TopArtists />
           <Playlists user={this.state.user} />

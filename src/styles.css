@@ -141,5 +141,15 @@ button {
 .related-artists-wrapper {
   display: flex;
   list-style-type: none;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.related-artists-wrapper > li {
+  width: 30%;
+  padding: 2rem;
+}
+
+img {
+  height: 50px;
+  margin-right: 0.5rem;
 }

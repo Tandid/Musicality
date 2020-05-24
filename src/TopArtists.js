@@ -46,9 +46,9 @@ class TopArtists extends Component {
                     alt="artist-img"
                   />
                   <p>Genres: </p>
-                  <p>
-                    {`${topArtist.genres[0]}, ${topArtist.genres[1]}, ${topArtist.genres[2]}`}
-                  </p>
+                  <p>{topArtist.genres[0]},</p>
+                  <p>{topArtist.genres[1]},</p>
+                  <p>{topArtist.genres[2]}</p>
                 </div>
                 <div>
                   <ArtistTopSongs id={topArtist.id} />
@@ -58,12 +58,8 @@ class TopArtists extends Component {
           })}
         </ul>
         <ul className="topArtists">
-          {topArtists.map((topArtist, idx) => {
-            return (
-              <li className="artist-topsong" key={topArtist.id}>
-                <RelatedArtists id={topArtist.id} />
-              </li>
-            );
+          {topArtists.slice(0, 1).map((topArtist, idx) => {
+            return <li className="artist-topsong" key={topArtist.id}></li>;
           })}
         </ul>
       </div>

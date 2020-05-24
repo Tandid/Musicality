@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
+
 const spotifyApi = new SpotifyWebApi();
 
 class RelatedArtists extends Component {
@@ -33,10 +34,9 @@ class RelatedArtists extends Component {
         <ul className="related-artists-wrapper">
           {relatedArtists.map((related) => {
             return (
-              <li key={related.id}>
-                <p>{related.name}</p>
+              <li className="row" key={related.id}>
                 <img src={related.images[2].url} alt="related-img" />
-                <RelatedArtists id={related.id} />
+                <p>{related.name}</p>
               </li>
             );
           })}
