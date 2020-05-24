@@ -58,11 +58,6 @@ class TopArtists extends Component {
             );
           })}
         </ul>
-        <ul className="topArtists">
-          {topArtists.slice(0, 1).map((topArtist, idx) => {
-            return <li className="artist-topsong" key={topArtist.id}></li>;
-          })}
-        </ul>
       </div>
     );
   }

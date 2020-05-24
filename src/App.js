@@ -3,6 +3,7 @@ import Playlists from "./Playlists";
 // import Analysis from "./Analysis";
 import NavBar from "./NavBar";
 import TopArtists from "./TopArtists";
+import Profile from "./Profile";
 
 import SpotifyWebApi from "spotify-web-api-js";
 const spotifyApi = new SpotifyWebApi();
@@ -62,7 +63,7 @@ class App extends Component {
     spotifyApi.getMe().then((response) => {
       console.log({ User: response });
       this.setState({
-        user: response.display_name,
+        user: response,
       });
     });
   }
@@ -83,8 +84,9 @@ class App extends Component {
         <NavBar />
         <div className="scroll">
           <div>
-            <p>Hello, {user}</p>
+            <p>Hello, {user.display_name}</p>
           </div>
+          <Profile />
           <TopArtists />
           <Playlists user={this.state.user} />
           <div>
