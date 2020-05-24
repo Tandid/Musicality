@@ -7,11 +7,13 @@ class Analysis extends Component {
     super();
     this.state = {
       Analysis: [],
+      Features: [],
     };
   }
 
   componentDidMount() {
     this.getTrackAnalysis();
+    this.getTrackFeatures();
   }
 
   async getTrackAnalysis() {
@@ -20,6 +22,17 @@ class Analysis extends Component {
       console.log({ getTrackAnalysis: response });
       this.setState({
         Analysis: response,
+      });
+    });
+  }
+
+  async getTrackFeatures() {
+    const { id } = this.props;
+    await spotifyApi.getAudioFeaturesForTrack(id).then((response) => {
+      console.log({ getTrackFeatures: response });
+      this.setState({
+        Analysis: response,
+        Features: response,
       });
     });
   }
