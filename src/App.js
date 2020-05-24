@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import Playlists from "./Playlists";
-// import Analysis from "./Analysis";
 import NavBar from "./NavBar";
 import TopArtists from "./TopArtists";
 import Profile from "./Profile";
+import WebPlayer from "./WebPlayer";
 
 import SpotifyWebApi from "spotify-web-api-js";
 const spotifyApi = new SpotifyWebApi();
@@ -18,7 +17,6 @@ class App extends Component {
     }
     this.state = {
       loggedIn: token ? true : false,
-      nowPlaying: { name: "Not Checked", albumArt: "", id: "" },
       user: [],
     };
   }
@@ -69,7 +67,7 @@ class App extends Component {
   }
 
   render() {
-    const { user, nowPlaying, loggedIn } = this.state;
+    const { user, loggedIn } = this.state;
     if (!loggedIn) {
       return (
         <div>
@@ -83,24 +81,11 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <div className="scroll">
-          <div>
-            <h1>Hello, {user.display_name}</h1>
-          </div>
+          <h1>Hello, {user.display_name}</h1>
           <Profile />
           <TopArtists />
-          <div>
-            <div>Now Playing: {nowPlaying.name}</div>
-            <img src={nowPlaying.albumArt} alt="album-art" />
-          </div>
-          {this.state.loggedIn && (
-            <div>
-              <button className="button" onClick={() => this.getNowPlaying()}>
-                Check Now Playing
-              </button>
-            </div>
-          )}
+          <WebPlayer />
         </div>
-        {/* <Analysis id={nowPlaying.id} /> */}
       </div>
     );
   }
