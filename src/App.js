@@ -86,6 +86,7 @@ class App extends Component {
           <Profile />
           <TopArtists />
           <TopTracks />
+          <hr />
           <WebPlayer />
         </div>
       </div>

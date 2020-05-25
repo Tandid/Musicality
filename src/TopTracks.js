@@ -27,15 +27,39 @@ class TopTracks extends Component {
   }
 
   render() {
-    let { topTracks, trackIds } = this.state;
-    topTracks = topTracks.slice(0, 10);
+    const { topTracks, trackIds } = this.state;
+    let firstHalf = topTracks.slice(0, 5);
+    let secondHalf = topTracks.slice(5, 10);
 
     return (
-      <div>
+      <div className="analysis-wrapper">
         <h1>Top Tracks</h1>
-        {topTracks.map((track) => {
-          return <li key={track.id}>{track.name}</li>;
-        })}
+        <div className="top-tracks-wrapper">
+          <div>
+            {firstHalf.map((track) => {
+              return (
+                <li className="row" key={track.id}>
+                  <img src={track.album.images[2].url} alt="album-img"></img>
+                  <p>
+                    {track.name} by {track.artists[0].name}
+                  </p>
+                </li>
+              );
+            })}
+          </div>
+          <div>
+            {secondHalf.map((track, idx) => {
+              return (
+                <li className="row" key={track.id}>
+                  <img src={track.album.images[2].url} alt="album-img"></img>
+                  <p>
+                    {track.name} by {track.artists[0].name}
+                  </p>
+                </li>
+              );
+            })}
+          </div>
+        </div>
         {trackIds.length >= 1 && <PersonalityTest trackIds={trackIds} />}
       </div>
     );

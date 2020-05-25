@@ -196,3 +196,14 @@ img {
 .web-player-img {
   height: 250px;
 }
+
+.analysis-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.top-tracks-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
