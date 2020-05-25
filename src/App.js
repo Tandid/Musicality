@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import TopArtists from "./TopArtists";
 import Profile from "./Profile";
 import WebPlayer from "./WebPlayer";
+import TopTracks from "./TopTracks";
 
 import SpotifyWebApi from "spotify-web-api-js";
 const spotifyApi = new SpotifyWebApi();
@@ -84,6 +85,7 @@ class App extends Component {
           <h1>Hello, {user.display_name}</h1>
           <Profile />
           <TopArtists />
+          <TopTracks />
           <WebPlayer />
         </div>
       </div>
