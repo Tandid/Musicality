@@ -33,7 +33,7 @@ class TopTracks extends Component {
 
     return (
       <div className="analysis-wrapper">
-        <h1>Top Tracks</h1>
+        <h1>My Top Tracks</h1>
         <div className="top-tracks-wrapper">
           <div>
             {firstHalf.map((track) => {
