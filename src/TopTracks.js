@@ -28,7 +28,6 @@ class TopTracks extends Component {
 
   render() {
     let { topTracks, trackIds } = this.state;
-    console.log(trackIds);
     topTracks = topTracks.slice(0, 10);
 
     return (
