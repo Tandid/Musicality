@@ -105,18 +105,20 @@ class PersonalityTest extends Component {
 
     return (
       <div>
-        <h1>Your Personality Is:</h1>
-        <p>Danceability: {danceability}</p>
-        <p>Energy: {energy}</p>
-        <p>Tempo: {tempo}</p>
-        <p>Valence: {valence}</p>
-        <p>Speechiness: {speechiness}</p>
-        {personality.map((person) => {
-          return energy >= 0.6 && valence < 0.4 && <div>{person.type}</div>;
-          return tempo < 100 && danceability < 0.6 && <div>{person.type}</div>;
-          return speechiness > 0.1 && <div>{person.type}</div>;
-          return danceability > 0.6 && <div>{person.type}</div>;
-        })}
+        <h1>Your Personality Type Is:</h1>
+        <div>
+          {energy >= 0.6 && valence < 0.4 && <h2>{personality[0].type}</h2>}
+          {tempo < 100 && danceability < 0.6 && <h2>{personality[1].type}</h2>}
+          {speechiness > 0.1 && <h2>{personality[2].type}</h2>}
+          {danceability > 0.6 && <h2>{personality[3].type}</h2>}
+        </div>
+        <div className="avg-analysis">
+          <p>Danceability: {danceability}</p>
+          <p>Energy: {energy}</p>
+          <p>Tempo: {tempo}</p>
+          <p>Valence: {valence}</p>
+          <p>Speechiness: {speechiness}</p>
+        </div>
       </div>
     );
   }

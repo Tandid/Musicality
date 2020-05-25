@@ -207,3 +207,9 @@ img {
   display: flex;
   justify-content: space-around;
 }
+
+.avg-analysis {
+  padding: 1rem;
+  border: solid 1px rgb(47, 167, 89);
+  margin: 0 30%;
+}
