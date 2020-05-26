@@ -29,6 +29,11 @@ class Analysis extends Component {
 
   render() {
     const { features } = this.state;
+    const speechiness = Number(features.speechiness).toFixed(2);
+    const danceability = Number(features.danceability).toFixed(2);
+    const energy = Number(features.energy).toFixed(2);
+    const tempo = Number(features.tempo).toFixed(0);
+    const valence = Number(features.valence).toFixed(2);
     return (
       <div className="card-wrapper-2">
         <button
@@ -43,11 +48,11 @@ class Analysis extends Component {
           <div>
             <h1> Song Analysis </h1>
             <div>
-              <p> Acousticness: {features.acousticness}</p>
-              <p> Danceability: {features.danceability}</p>
-              <p> Energy: {features.energy}</p>
-              <p> Tempo: {features.tempo}</p>
-              <p> Valence(Positiveness) : {features.valence}</p>
+              <p> Danceability: {danceability}</p>
+              <p> Energy: {energy}</p>
+              <p> Tempo: {tempo}</p>
+              <p> Valence(Positiveness) : {valence}</p>
+              <p> Speechiness: {speechiness}</p>
             </div>
           </div>
         )}

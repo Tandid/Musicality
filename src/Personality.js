@@ -96,7 +96,7 @@ class PersonalityTest extends Component {
   }
 
   render() {
-    const {
+    let {
       danceability,
       energy,
       tempo,
@@ -104,6 +104,11 @@ class PersonalityTest extends Component {
       personality,
       speechiness,
     } = this.state;
+    danceability = Number(danceability).toFixed(2);
+    energy = Number(energy).toFixed(2);
+    tempo = Number(tempo).toFixed(0);
+    valence = Number(valence).toFixed(2);
+    speechiness = Number(speechiness).toFixed(2);
 
     return (
       <div>
