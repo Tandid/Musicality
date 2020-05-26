@@ -10,6 +10,7 @@ class TopTracks extends Component {
     this.state = {
       topTracks: [],
       trackIds: [],
+      activeButton: false,
     };
   }
   componentDidMount() {
@@ -32,35 +33,55 @@ class TopTracks extends Component {
     let secondHalf = topTracks.slice(5, 10);
 
     return (
-      <div className="analysis-wrapper">
-        <h1>My Top Tracks</h1>
-        <div className="top-tracks-wrapper">
-          <div>
-            {firstHalf.map((track) => {
-              return (
-                <li className="row" key={track.id}>
-                  <img src={track.album.images[2].url} alt="album-img"></img>
-                  <p>
-                    {track.name} by {track.artists[0].name}
-                  </p>
-                </li>
-              );
-            })}
+      <div>
+        <button
+          className="button"
+          onClick={() =>
+            this.setState({ activeButton: !this.state.activeButton })
+          }
+        >
+          {this.state.activeButton === false
+            ? "Find Personality"
+            : "Hide Personality"}
+        </button>
+        {this.state.activeButton === true && (
+          <div className="analysis-wrapper">
+            {trackIds.length >= 1 && <PersonalityTest trackIds={trackIds} />}
+            <h1>My Top Tracks</h1>
+            <div className="top-tracks-wrapper">
+              <div>
+                {firstHalf.map((track) => {
+                  return (
+                    <li className="row" key={track.id}>
+                      <img
+                        src={track.album.images[2].url}
+                        alt="album-img"
+                      ></img>
+                      <p>
+                        {track.name} by {track.artists[0].name}
+                      </p>
+                    </li>
+                  );
+                })}
+              </div>
+              <div>
+                {secondHalf.map((track, idx) => {
+                  return (
+                    <li className="row" key={track.id}>
+                      <img
+                        src={track.album.images[2].url}
+                        alt="album-img"
+                      ></img>
+                      <p>
+                        {track.name} by {track.artists[0].name}
+                      </p>
+                    </li>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-          <div>
-            {secondHalf.map((track, idx) => {
-              return (
-                <li className="row" key={track.id}>
-                  <img src={track.album.images[2].url} alt="album-img"></img>
-                  <p>
-                    {track.name} by {track.artists[0].name}
-                  </p>
-                </li>
-              );
-            })}
-          </div>
-        </div>
-        {trackIds.length >= 1 && <PersonalityTest trackIds={trackIds} />}
+        )}
       </div>
     );
   }

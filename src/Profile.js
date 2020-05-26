@@ -54,7 +54,9 @@ class Profile extends Component {
                     })
                   }
                 >
-                  View Playlists
+                  {this.state.activeButtonTwo === false
+                    ? "View Public Playlists"
+                    : "Hide Public Playlists"}
                 </button>
               </div>
             </div>

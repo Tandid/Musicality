@@ -15,12 +15,12 @@ class PersonalityTest extends Component {
       speechiness: 0,
       personality: [
         {
-          type: "Integrator",
+          type: "Amiable",
           summary:
             "The amiable member of your team will be patient, sympathetic and kind. Although they have a very likeable personality, amiable’s can be stubborn and selfish. They do tend to be easy going and diplomatic. Due to the calm nature of an amiable personality, they do not appreciate abrasiveness, therefore it is best to approach them gently, and with an extra level of kindness and consideration. If you are managing someone with an amiable personality, encourage them to take more risks and work closely with them, ensure you are not harsh and pushy to get the best out of your amiable team member.",
         },
         {
-          type: "Guardian",
+          type: "Analytical",
           summary:
             "Those with analytical personalities tend to be thoughtful, serious & purposeful. They will be the team members who are neat & tidy, self-disciplined and perfectionists. Due to their personality they can be indecisive and over-analyse, so to help them in a decision-making process it is best not to pressure them, rather give them encouragement, and time alone to think. It is important to provide an Analytical person with all the facts and information and speak softly and calmly when asking them to complete a task, but be patient with them throughout the task.",
         },
@@ -30,7 +30,7 @@ class PersonalityTest extends Component {
             "Drivers are determined, decisive and confident. They will tend to strive to get a task completed, and will not be easily discouraged. Driver’s can sometimes seem like the natural-born leader of the team, but can sometimes appear to be insensitive and harsh. Drivers don’t necessarily need all the facts to make a decision, so when you need a decision from them, get to the point, and show your appreciation for their ability to get things done. Drivers greatly dislike being micromanaged, so give them some responsibility and give them the freedom to let them find the best path for reaching a goal or completing a task.",
         },
         {
-          type: "Pioneer",
+          type: "Expressive",
           summary:
             "Your expressive team member will be the humorous, charismatic and outgoing. Expressive’s are ambitious and can be persuasive, however, they can also be undisciplined, loud and disorganised. When managing an expressive, show excitement and enthusiasm in the workplace, show an appreciation for their sense of humour and charisma. Those with an expressive personality needs broad structure in their jobs and the freedom to do their work. Remember, they can be more productive when you let them have fun, so the loud humour in the workplace may not always be a bad thing.",
         },

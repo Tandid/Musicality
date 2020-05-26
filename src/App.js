@@ -78,14 +78,15 @@ class App extends Component {
         </div>
       );
     }
+
     return (
       <div className="App">
         <NavBar />
         <div className="scroll">
           <h1>Hello, {user.display_name}</h1>
           <Profile />
-          <TopArtists />
           <TopTracks />
+          <TopArtists />
           <hr />
           <WebPlayer />
         </div>
