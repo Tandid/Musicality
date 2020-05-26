@@ -10,8 +10,8 @@ class Profile extends Component {
     super();
     this.state = {
       user: [],
+      img: "",
       activeButton: false,
-      activeButtonTwo: false,
     };
   }
 
@@ -21,54 +21,47 @@ class Profile extends Component {
 
   getMe() {
     spotifyApi.getMe().then((response) => {
+      console.log(response.images[0].url);
       this.setState({
         user: response,
+        img: response.images[0].url,
       });
     });
   }
 
   render() {
-    const { user } = this.state;
+    const { user, img } = this.state;
+
     return (
       <div>
-        <button
-          className="button"
-          onClick={() =>
-            this.setState({ activeButton: !this.state.activeButton })
-          }
-        >
-          User Profile
-        </button>
-        {this.state.activeButton === true && (
-          <div>
-            <div className="profile-wrapper">
-              <img src={user.images[0].url} alt="profile-pic" />
-              <div>
-                <p>{user.display_name}</p>
-                <p>Email: {user.email}</p>
-                <p>Status: {user.product}</p>
-                <button
-                  className="button"
-                  onClick={() =>
-                    this.setState({
-                      activeButtonTwo: !this.state.activeButtonTwo,
-                    })
-                  }
-                >
-                  {this.state.activeButtonTwo === false
-                    ? "Find Your Personality"
-                    : "Hide"}
-                </button>
-              </div>
+        <div>
+          <div className="profile-wrapper">
+            <img src={img} alt="profile-pic" />
+            <div>
+              <p>{user.display_name}</p>
+              <p>Email: {user.email}</p>
+              <p>Status: {user.product}</p>
+              <button
+                className="button"
+                onClick={() =>
+                  this.setState({
+                    activeButton: !this.state.activeButton,
+                  })
+                }
+              >
+                {this.state.activeButton === false
+                  ? "Personality Analysis"
+                  : "Hide"}
+              </button>
             </div>
-            {this.state.activeButtonTwo === true && (
-              <div>
-                <TopTracks />
-                <TopArtists />
-              </div>
-            )}
           </div>
-        )}
+          {this.state.activeButton === true && (
+            <div>
+              <TopTracks />
+              <TopArtists />
+            </div>
+          )}
+        </div>
       </div>
     );
   }

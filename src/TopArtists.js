@@ -29,10 +29,9 @@ class TopArtists extends Component {
   render() {
     let { topArtists } = this.state;
     topArtists = topArtists.slice(0, 3);
-    // const { user } = this.props;
     return (
       <div className="card-wrapper-2">
-        <h1> My Top Artists</h1>
+        <h1> Your Top Artists</h1>
         <ul className="topArtists">
           {topArtists.map((topArtist, idx) => {
             return (

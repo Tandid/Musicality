@@ -34,20 +34,9 @@ class TopTracks extends Component {
 
     return (
       <div className="analysis-wrapper">
-        {/* <button
-          className="button"
-          onClick={() =>
-            this.setState({ activeButton: !this.state.activeButton })
-          }
-        >
-          {this.state.activeButton === false
-            ? "Find Personality"
-            : "Hide Personality"}
-        </button> */}
-        {/* {this.state.activeButton === true && ( */}
         <div>
           {trackIds.length >= 1 && <PersonalityTest trackIds={trackIds} />}
-          <h1>My Top Tracks</h1>
+          <h1>Your Top 10 Tracks</h1>
           <div className="top-tracks-wrapper">
             <div>
               {firstHalf.map((track) => {

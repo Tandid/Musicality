@@ -36,7 +36,6 @@ class PersonalityTest extends Component {
         },
       ],
     };
-    // this.getAverageDanceability = this.getAverageDanceability.bind(this);
   }
   componentDidMount() {
     this.getTrackFeatures();
@@ -87,7 +86,6 @@ class PersonalityTest extends Component {
 
       console.log({ MultipleFeatures: response.audio_features });
       this.setState({
-        // features: response.audio_features,
         danceability: avgDanceability(),
         energy: avgEnergy(),
         tempo: avgTempo(),
@@ -96,17 +94,6 @@ class PersonalityTest extends Component {
       });
     });
   }
-
-  //   getAverageDanceability() {
-  //     const { features } = this.state;
-  //     if (features.length >= 1) {
-  //       return (
-  //         features.reduce((accum, feature) => {
-  //           return accum + feature.danceability;
-  //         }, 0) / features.length
-  //       );
-  //     }
-  //   }
 
   render() {
     const {
@@ -117,39 +104,38 @@ class PersonalityTest extends Component {
       personality,
       speechiness,
     } = this.state;
-    // console.log({ Danceability: this.getAverageDanceability() });
 
     return (
       <div>
-        <h1>You Are Most Likely:</h1>
+        <h1>You Are:</h1>
         <div className="personality-wrapper">
           {energy >= 0.6 && valence < 0.4 && (
             <div>
-              <h2>{personality[0].type}</h2>
+              <h1 className="amiable">{personality[0].type}</h1>
               <p>{personality[0].summary}</p>
             </div>
           )}
           {tempo < 100 && danceability < 0.6 && (
             <div>
-              <h2>{personality[1].type}</h2>
+              <h1 className="analytical">{personality[1].type}</h1>
               <p>{personality[1].summary}</p>
             </div>
           )}
           {speechiness > 0.1 && (
             <div>
-              <h2>{personality[2].type}</h2>
+              <h1 className="driver">{personality[2].type}</h1>
               <p>{personality[2].summary}</p>
             </div>
           )}
           {danceability > 0.6 && (
             <div>
-              <h2>{personality[3].type}</h2>
+              <h1 className="expressive">{personality[3].type}</h1>
               <p>{personality[3].summary}</p>
             </div>
           )}
         </div>
         <div className="avg-analysis">
-          <h2>Music Analysis</h2>
+          <h2>Your Music Style:</h2>
           <p>Danceability: {danceability}</p>
           <p>Energy: {energy}</p>
           <p>Tempo: {tempo}</p>

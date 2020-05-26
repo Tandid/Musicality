@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar";
-import TopArtists from "./TopArtists";
 import Profile from "./Profile";
 import WebPlayer from "./WebPlayer";
-import TopTracks from "./TopTracks";
 
 import SpotifyWebApi from "spotify-web-api-js";
 const spotifyApi = new SpotifyWebApi();
@@ -69,7 +67,7 @@ class App extends Component {
 
   render() {
     const { user, loggedIn } = this.state;
-    if (!loggedIn) {
+    if (!loggedIn || !user) {
       return (
         <div>
           <a className="button" href="http://localhost:8888">
@@ -85,8 +83,6 @@ class App extends Component {
         <div className="scroll">
           <h1>Hello, {user.display_name}</h1>
           <Profile />
-          {/* <TopTracks /> */}
-          {/* <TopArtists /> */}
           <hr />
           <WebPlayer />
         </div>
