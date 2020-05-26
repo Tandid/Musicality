@@ -56,7 +56,7 @@ class WebPlayer extends Component {
     return (
       <div>
         <div>
-          <h1>Now Playing</h1>
+          <h1>Web Player</h1>
           <h4>Device: {player.deviceName}</h4>
         </div>
         <div>{nowPlaying.name}</div>

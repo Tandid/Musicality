@@ -85,8 +85,8 @@ class App extends Component {
         <div className="scroll">
           <h1>Hello, {user.display_name}</h1>
           <Profile />
-          <TopTracks />
-          <TopArtists />
+          {/* <TopTracks /> */}
+          {/* <TopArtists /> */}
           <hr />
           <WebPlayer />
         </div>

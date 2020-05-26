@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
-import Playlists from "./Playlists";
+import TopTracks from "./TopTracks";
+import TopArtists from "./TopArtists";
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -55,12 +56,17 @@ class Profile extends Component {
                   }
                 >
                   {this.state.activeButtonTwo === false
-                    ? "View Public Playlists"
-                    : "Hide Public Playlists"}
+                    ? "Find Your Personality"
+                    : "Hide"}
                 </button>
               </div>
             </div>
-            {this.state.activeButtonTwo === true && <Playlists />}
+            {this.state.activeButtonTwo === true && (
+              <div>
+                <TopTracks />
+                <TopArtists />
+              </div>
+            )}
           </div>
         )}
       </div>
