@@ -17,6 +17,22 @@ class WebPlayer extends Component {
     this.getNowPlaying();
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.nowPlaying.name !== this.state.nowPlaying.name) {
+  //     this.setState({
+  //       nowPlaying: {
+  //         name: this.state.nowPlaying.name,
+  //         albumArt: this.state.nowPlaying.albumArt,
+  //         id: this.state.nowPlaying.id,
+  //       },
+  //       player: {
+  //         deviceId: this.state.player.deviceId,
+  //         deviceName: this.state.player.deviceName,
+  //       },
+  //     });
+  //   }
+  // }
+
   async getNowPlaying() {
     await spotifyApi.getMyCurrentPlaybackState().then((response) => {
       console.log({ nowPlaying: response });
