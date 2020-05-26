@@ -12,21 +12,6 @@ class Analysis extends Component {
     };
   }
 
-  componentDidMount() {
-    this.getTrackAnalysis();
-    this.getTrackFeatures();
-  }
-
-  async getTrackAnalysis() {
-    const { id } = this.props;
-    await spotifyApi.getAudioAnalysisForTrack(id).then((response) => {
-      console.log({ getTrackAnalysis: response });
-      this.setState({
-        analysis: response,
-      });
-    });
-  }
-
   async getTrackFeatures() {
     const { id } = this.props;
     await spotifyApi.getAudioFeaturesForTrack(id).then((response) => {
@@ -37,13 +22,20 @@ class Analysis extends Component {
     });
   }
 
+  onClick() {
+    this.getTrackFeatures();
+    this.setState({ active: true });
+  }
+
   render() {
     const { features } = this.state;
     return (
       <div className="card-wrapper-2">
         <button
           className="button"
-          onClick={() => this.setState({ active: !this.state.active })}
+          onClick={() => {
+            this.onClick();
+          }}
         >
           Get Song Analysis
         </button>

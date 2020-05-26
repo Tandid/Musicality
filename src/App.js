@@ -37,12 +37,6 @@ class App extends Component {
     this.getMe();
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.nowPlaying.name !== this.state.nowPlaying.name) {
-  //     this.getNowPlaying();
-  //   }
-  // }
-
   async getNowPlaying() {
     await spotifyApi.getMyCurrentPlaybackState().then((response) => {
       console.log({ nowPlaying: response });
