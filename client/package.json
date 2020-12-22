@@ -1,8 +1,9 @@
 {
   "name": "spotify-app",
   "version": "0.1.0",
-  "private": true,
   "description": "Spotify Personality Test",
+  "private": true,
+  "proxy": "http://localhost:8888/",
   "engines": {
     "node": "13.12",
     "npm": "6.14.4"
@@ -11,7 +12,6 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "concurrently": "^5.3.0",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "nodemon": "^2.0.4",
@@ -24,10 +24,7 @@
     "spotify-web-api-js": "^0.22.1"
   },
   "scripts": {
-    "start": "node ./auth-server/authorization_code/app.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-    "client": "cd client && npm start",
-    "start-dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
